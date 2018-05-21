@@ -15,7 +15,10 @@ RUN apt-get install -y \
     python-reportlab \
     python-scipy \
     python-tk \
-    zlib1g-dev
+    zlib1g-dev \
+    emacs \
+    emacs-goodies-el
+    
 RUN pip install -U future futures pandas pyfaidx pysam
 RUN pip install cnvkit==0.9.0
 # Let matplotlib build its font cache
