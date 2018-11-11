@@ -19,6 +19,8 @@ RUN apt-get install -y \
     emacs \
     emacs-goodies-el
     
+RUN apt-get update -y && apt-get install -y libnss-sss
+
 RUN pip install -U future futures pandas pyfaidx pysam
 RUN pip install cnvkit==0.9.5
 # Let matplotlib build its font cache
