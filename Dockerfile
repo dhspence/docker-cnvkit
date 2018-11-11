@@ -20,7 +20,7 @@ RUN apt-get install -y \
     emacs-goodies-el
     
 RUN pip install -U future futures pandas pyfaidx pysam
-RUN pip install cnvkit==0.9.0
+RUN pip install cnvkit==0.9.5
 # Let matplotlib build its font cache
 RUN cnvkit.py version
 
