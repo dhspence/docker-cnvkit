@@ -2,8 +2,6 @@ FROM ubuntu:latest
 MAINTAINER David Spencer (dspencer@wustl.edu)
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y r-base-core
-RUN Rscript -e "source('http://bioconductor.org/biocLite.R'); biocLite('PSCBS', 'cghFLasso')"
 
 RUN apt-get install -y \
     liblzma-dev \
@@ -33,6 +31,9 @@ RUN pip install -U future futures pandas pyfaidx pysam
 RUN pip install cnvkit==0.9.5
 # Let matplotlib build its font cache
 RUN cnvkit.py version
+
+RUN apt-get update && apt-get install -y r-base-core
+RUN Rscript -e "source('http://bioconductor.org/biocLite.R'); biocLite('PSCBS', 'cghFLasso')"
 
 # ENTRYPOINT ["cnvkit.py"]
 # CMD ["--help"]
