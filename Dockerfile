@@ -14,7 +14,10 @@ RUN apt-get update && apt-get install -y \
     python-scipy \
     python-tk \
     zlib1g-dev \
-    r-base-core
+    r-base-core \
+    r-base \
+    r-base-dev \
+    r-recommended
     
 RUN apt-get update -y && apt-get install -y libnss-sss
 
