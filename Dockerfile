@@ -14,8 +14,7 @@ RUN apt-get update && apt-get install -y \
     python-scipy \
     python-tk \
     zlib1g-dev \
-    emacs \
-    emacs-goodies-el
+    r-base-core
     
 RUN apt-get update -y && apt-get install -y libnss-sss
 
@@ -27,12 +26,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends locales && \
     /usr/sbin/update-locale LANG=en_US.UTF-8 && \
     TERM=xterm
     
-RUN pip install -U future futures pandas pyfaidx pysam
+RUN pip install -U future futures pandas pyfaidx pysam hmmlearn
 RUN pip install cnvkit==0.9.5
 # Let matplotlib build its font cache
 RUN cnvkit.py version
 
-RUN apt-get install -y r-base-core
 RUN Rscript -e "source('http://bioconductor.org/biocLite.R'); biocLite('PSCBS', 'cghFLasso')"
 
 # ENTRYPOINT ["cnvkit.py"]
