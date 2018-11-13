@@ -3,7 +3,7 @@ MAINTAINER David Spencer (dspencer@wustl.edu)
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
     liblzma-dev \
     python-biopython \
     python-dev \
@@ -32,7 +32,7 @@ RUN pip install cnvkit==0.9.5
 # Let matplotlib build its font cache
 RUN cnvkit.py version
 
-RUN apt-get update && apt-get install -y r-base-core
+RUN apt-get install -y r-base-core
 RUN Rscript -e "source('http://bioconductor.org/biocLite.R'); biocLite('PSCBS', 'cghFLasso')"
 
 # ENTRYPOINT ["cnvkit.py"]
