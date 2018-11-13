@@ -31,7 +31,7 @@ RUN pip install cnvkit==0.9.5
 # Let matplotlib build its font cache
 RUN cnvkit.py version
 
-RUN Rscript -e "source('http://bioconductor.org/biocLite.R'); biocLite('PSCBS', 'cghFLasso')"
+RUN Rscript -e "source('http://bioconductor.org/biocLite.R'); biocLite('PSCBS'); biocLite('cghFLasso')"
 
 # ENTRYPOINT ["cnvkit.py"]
 # CMD ["--help"]
